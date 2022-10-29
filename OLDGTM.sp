@@ -29,11 +29,6 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 	}
 }
 
-public void OnPluginStart()
-{
-	HookEvent("player_death", Event_PlayerDeath, EventHookMode_Pre);
-}
-
 public void OnClientPutInServer(int client){
 	
 	SDKHook(client, SDKHook_WeaponDrop, OnWeaponDrop);
@@ -112,13 +107,5 @@ public void OnGameFrame(){
 		}
 		
 	}
-	
-}
-
-
-public Action Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast){
-	
-	event.SetBool("headshot", true);
-	return Plugin_Continue;
 	
 }
